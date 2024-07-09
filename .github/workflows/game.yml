@@ -33,9 +33,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.15.1'
-
-      - name: Update nodejs dependencies
-        uses: neverendingqs/gh-action-node-update-deps@v2
           
       - name: Cancel Previous Workflow Runs
         uses: n1hility/cancel-previous-runs@v2.0
@@ -68,10 +65,15 @@ jobs:
           lean --json --make src | python scripts/detect_errors.py
           lean --json --make src | python scripts/detect_errors.py
 
-      - name: Install Game maker
+      - name: Clone lean-game-maker files to prepare installation
         run: |
           git clone https://github.com/mpedramfar/Lean-game-maker.git
           cd Lean-game-maker/src/interactive_interface
+
+      - name: Update nodejs dependencies
+        uses: neverendingqs/gh-action-node-update-deps@v2
+
+      - name: Install Game maker
           npm install .
           ./node_modules/.bin/webpack --mode=production
           cd ../..
