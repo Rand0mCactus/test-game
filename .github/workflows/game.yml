@@ -33,6 +33,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.15.1'
+
+      - name: Update nodejs dependencies
+        uses: neverendingqs/gh-action-node-update-deps@v2
           
       - name: Cancel Previous Workflow Runs
         uses: n1hility/cancel-previous-runs@v2.0
