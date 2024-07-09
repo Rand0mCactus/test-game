@@ -65,16 +65,11 @@ jobs:
           lean --json --make src | python scripts/detect_errors.py
           lean --json --make src | python scripts/detect_errors.py
 
-      - name: Clone lean-game-maker files to prepare installation
+      - name: Install Game maker
         run: |
           git clone https://github.com/mpedramfar/Lean-game-maker.git
           cd Lean-game-maker/src/interactive_interface
-
-      - name: Update nodejs dependencies
-        uses: neverendingqs/gh-action-node-update-deps@v2
-
-      - name: Install Game maker
-        run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm install .
           ./node_modules/.bin/webpack --mode=production
           cd ../..
