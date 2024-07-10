@@ -79,20 +79,6 @@ for instance `add_comm 2 3` means `2 + 3 = 3 + 2`.
 Here we used 2 and 3, but we could apply this lemma with variables too by using their names
 instead of 2 and 3.
 
-
-### Rewriting
-Rewriting is one of the most basic methods of proof, we substitute one object we know equals another
-inside what we want to prove, by doing this we can get closer to something that we already know to
-be true,
-or get to a point where things cancel out or simplify.
-
-For example if `h` is a name for the fact that `X = Y`, then `rewrite h,` will change
-all `X`s in the goal to `Y`s (the comma at the end is important, it tells Lean you are done
-with one step of your proof).
-On the left hand side in the tactics panel there is a dropdown with a lot more details about
-`rewrite`, you don't need to read it now, but it's there if you ever want to check the syntax
-again.
-
 Now try to use a sequence of `rewrite` steps to prove the lemma below by typing them into the box
 underneath, between the `begin` and `end` lines that tell Lean you are starting and finishing a
 proof.
